@@ -2,140 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Win an iPhone 16 Pro Max!</title>
+  <title>Early Childhood Prank Site</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(to right, #ffecd2, #fcb69f);
-      text-align: center;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff3cd;
       padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 400px;
+      text-align: center;
+      border: 5px solid #ff9f1c;
     }
+
     h1 {
-      color: #ff4081;
-      text-shadow: 2px 2px #ffe082;
-      font-size: 3rem;
+      color: #ff477e;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
-    .form-box {
-      background: #fff3e0;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
-      max-width: 500px;
-      margin: auto;
-    }
-    label {
-      font-size: 1.2rem;
-      color: #6a1b9a;
-      display: block;
-      margin: 10px 0 5px;
-    }
-    input {
-      padding: 10px;
-      border-radius: 10px;
-      border: 2px solid #ff80ab;
-      width: 80%;
-      font-size: 1rem;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #ff80ab;
-      border: none;
-      border-radius: 15px;
-      font-size: 1.2rem;
-      cursor: pointer;
+
+    p.banner {
+      font-size: 18px;
+      background: #06d6a0;
       color: white;
+      padding: 8px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: 2px solid #ffd166;
+      font-size: 14px;
+    }
+
+    button {
+      background: #ff477e;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 15px;
+      font-size: 16px;
+      cursor: pointer;
       transition: 0.3s;
     }
+
     button:hover {
-      background-color: #f06292;
-      transform: scale(1.05);
+      background: #d6336c;
     }
+
+    /* Popups */
     .popup {
-      display: none;
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fffde7;
-      border: 3px solid #ff4081;
+      transform: translate(-50%, -50%) scale(0);
+      background: #ffe066;
+      padding: 25px;
       border-radius: 20px;
-      padding: 30px;
-      z-index: 9999;
-      box-shadow: 0px 6px 12px rgba(0,0,0,0.3);
-      animation: pop 0.3s ease-in-out;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      z-index: 100;
+      text-align: center;
+      width: 350px;
+      transition: transform 0.3s ease-in-out;
     }
-    @keyframes pop {
-      from { transform: translate(-50%, -50%) scale(0.5); }
-      to { transform: translate(-50%, -50%) scale(1); }
+
+    .popup.active {
+      transform: translate(-50%, -50%) scale(1);
     }
-    .popup button {
-      margin: 10px;
-      background: #4caf50;
-      color: white;
+
+    .popup h2 {
+      color: #ff006e;
     }
-    .popup button:hover {
-      background: #388e3c;
+
+    .emoji-btns button {
+      margin: 5px;
+      background: #118ab2;
+    }
+
+    img {
+      width: 100px;
+      border-radius: 12px;
+      margin: 8px;
+    }
+
+    /* Party popper animation */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: red;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Chance to Win an iPhone 16 Pro Max! 🎉</h1>
-  <div class="form-box">
-    <form id="infoForm">
-      <label>Name:</label>
-      <input type="text" required><br>
-      <label>Section:</label>
-      <input type="text" required><br>
-      <label>What’s your favorite hobby?</label>
-      <input type="text" required><br>
-      <label>What’s your favorite color?</label>
-      <input type="text" required><br>
-      <label>What’s your favorite food?</label>
-      <input type="text" required><br>
-      <label>What’s your dream job?</label>
-      <input type="text" required><br>
-      <label>Who is your favorite cartoon character?</label>
-      <input type="text" required><br>
-      <button type="submit">Submit</button>
-    </form>
+
+<div class="container">
+  <h1>Fun Info Form 🎨</h1>
+  <p class="banner">Chance to win an iPhone 16 Pro Max! 📱</p>
+  <form id="infoForm">
+    <input type="text" placeholder="Name" required><br>
+    <input type="text" placeholder="Section" required><br>
+    <input type="number" placeholder="Age" required><br>
+    <input type="text" placeholder="Address" required><br>
+    <input type="text" placeholder="Hobbies" required><br>
+    <textarea placeholder="One fun fact about you" required></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- Popups -->
+<div id="popup1" class="popup">
+  <h2>We got your information! 😈</h2>
+  <button onclick="nextPopup()">OK</button>
+</div>
+
+<div id="popup2" class="popup">
+  <h2>How do you feel about us getting your info?</h2>
+  <div class="emoji-btns">
+    <button onclick="finalPopup()">😊 Happy</button>
+    <button onclick="finalPopup()">😢 Sad</button>
+    <button onclick="finalPopup()">😡 Angry</button>
   </div>
+</div>
 
-  <!-- Popup 1 -->
-  <div class="popup" id="popup1">
-    <p>😲 We got your information!</p>
-    <button onclick="showPopup(2)">OK</button>
-  </div>
+<div id="popup3" class="popup">
+  <h2>Just kidding! 😂</h2>
+  <p>This is only a joke and a props for our reporting.</p>
+  <p>Hindi naman aq si Discaya para nakawin ang information mo,<br>kung gusto mo ng IPhone 16 pro max mamaya sa financial literacy ipapaliwanang kung paano mo makukuha yon.</p>
+  <p>👉 Baka sa isang click mo, kalat na pati crush mo!</p>
+  <img src="https://i.pinimg.com/236x/4d/13/13/4d13135ef1d77ed91ce80334ceab6ef5.jpg" alt="Malupiton">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sarah_Discaya_Senate_hearing.jpg/250px-Sarah_Discaya_Senate_hearing.jpg" alt="Discaya">
+</div>
 
-  <!-- Popup 2 -->
-  <div class="popup" id="popup2">
-    <p>How do you feel about us getting your info?</p>
-    <button onclick="showPopup(3)">😊 Happy</button>
-    <button onclick="showPopup(3)">😢 Sad</button>
-    <button onclick="showPopup(3)">😡 Angry</button>
-  </div>
+<audio id="evilLaugh" src="https://www.myinstants.com/media/sounds/evil-laugh-1.mp3"></audio>
 
-  <!-- Popup 3 -->
-  <div class="popup" id="popup3">
-    <p>😂 Just kidding! This is only a joke and a props for our reporting.</p>
-    <button onclick="closeAll()">Close</button>
-  </div>
+<script>
+  const form = document.getElementById('infoForm');
+  const popup1 = document.getElementById('popup1');
+  const popup2 = document.getElementById('popup2');
+  const popup3 = document.getElementById('popup3');
+  const evilLaugh = document.getElementById('evilLaugh');
 
-  <script>
-    const form = document.getElementById('infoForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('popup1').style.display = 'block';
-    });
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    popup1.classList.add('active');
+    evilLaugh.play();
+    launchConfetti();
+  });
 
-    function showPopup(num) {
-      closeAll();
-      document.getElementById('popup' + num).style.display = 'block';
+  function nextPopup() {
+    popup1.classList.remove('active');
+    popup2.classList.add('active');
+  }
+
+  function finalPopup() {
+    popup2.classList.remove('active');
+    popup3.classList.add('active');
+    launchConfetti();
+  }
+
+  // Confetti animation
+  function launchConfetti() {
+    for (let i = 0; i < 30; i++) {
+      let confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.backgroundColor = getRandomColor();
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
     }
+  }
 
-    function closeAll() {
-      document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
-    }
-  </script>
+  function getRandomColor() {
+    const colors = ["#ff477e", "#06d6a0", "#ffd166", "#118ab2", "#8338ec"];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+</script>
+
 </body>
 </html>
